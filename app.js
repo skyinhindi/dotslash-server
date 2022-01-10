@@ -40,6 +40,8 @@ app.get('/view-complaint', viewComplaint);
 
 app.post('/save-complaint', upload.single('image'), saveComplaint);
 
+app.get('/test', (req, res) => res.send('okay'));
+
 app.use((req, res) => {
   res.status(404).json({
     success:false,
