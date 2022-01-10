@@ -22,7 +22,7 @@ const fetchList = require('./controllers/fetchList');
 const app = express();
 
 // connect to mongodb & listen for requests
-const dbURI = process.env.MONGODB_URI || 'mongodb+srv://dbAdmin:dotSlashAdmin@cluster0.7jope.mongodb.net/dotslash?retryWrites=true&w=majority';
+const dbURI = process.env.MONGODB_URI || `mongodb+srv://dbAdmin:${process.env.PASS}@cluster0.7jope.mongodb.net/dotslash?retryWrites=true&w=majority`;
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(result => app.listen(process.env.PORT || 5000))
